@@ -4,7 +4,7 @@ metadata:
   name: deno-app
   namespace: apps
 spec:
-  replicas: 5
+  replicas: 3
   selector:
     matchLabels:
       k8s-app: deno-app
