@@ -4,7 +4,7 @@ const PORT = 8000;
 
 const server = serve({ port: PORT });
 
-const body = new TextEncoder().encode("Hello World\n");
+const body = new TextEncoder().encode("Hello World from Deno!\n");
 
 console.log(`Server started on port ${PORT}`);
 

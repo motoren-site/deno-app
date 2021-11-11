@@ -1,21 +1,21 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: go-app
+  name: deno-app
   namespace: apps
 spec:
   replicas: 5
   selector:
     matchLabels:
-      k8s-app: go-app
+      k8s-app: deno-app
   template:
     metadata:
-      name: go-app
+      name: deno-app
       labels:
-        k8s-app: go-app
+        k8s-app: deno-app
     spec:
       containers:
-        - name: go-app
+        - name: deno-app
           image: <IMAGE>
           imagePullPolicy: Always
       restartPolicy: Always

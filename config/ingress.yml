@@ -12,9 +12,9 @@ spec:
     http:
       paths:
       - pathType: Prefix
-        path: "/app(/|$)(.*)"
+        path: "/deno(/|$)(.*)"
         backend:
           service:
-            name: go-app
+            name: deno-app
             port:
               number: 80
