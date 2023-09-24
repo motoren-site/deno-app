@@ -18,10 +18,10 @@ jobs:
         password: ${{ secrets.DIGITAL_OCEAN_TOKEN }}
 
     - name: Build latest
-      run: docker build -t registry.digitalocean.com/olsen/deno-app:$(echo $GITHUB_SHA | head -c7) .
+      run: docker build -t registry.digitalocean.com/containers/deno-app:$(echo $GITHUB_SHA | head -c7) .
 
     - name: Push to Digital Ocean Registry
-      run: docker push registry.digitalocean.com/olsen/deno-app:$(echo $GITHUB_SHA | head -c7)
+      run: docker push registry.digitalocean.com/containers/deno-app:$(echo $GITHUB_SHA | head -c7)
 
     - name: Set up kubectl
       uses: matootie/dokube@v1.3.4
@@ -30,7 +30,7 @@ jobs:
         clusterName: k8s-miles
 
     - name: Update deployment file
-      run: TAG=$(echo $GITHUB_SHA | head -c7) && sed -i 's|<IMAGE>|registry.digitalocean.com/olsen/deno-app:'${TAG}'|' $GITHUB_WORKSPACE/config/deployment.yml
+      run: TAG=$(echo $GITHUB_SHA | head -c7) && sed -i 's|<IMAGE>|registry.digitalocean.com/containers/deno-app:'${TAG}'|' $GITHUB_WORKSPACE/config/deployment.yml
 
     - name: Deploy to Kubernetes
       run: kubectl apply -f config/deployment.yml
@@ -47,5 +47,5 @@ jobs:
     - name: Remove old containers
       uses: ripplr-io/docr-image-remove@v1
       with:
-        image_repository: registry.digitalocean.com/olsen/deno-app
+        image_repository: registry.digitalocean.com/containers/deno-app
         buffer_size: 2
