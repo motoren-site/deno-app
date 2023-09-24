@@ -32,6 +32,9 @@ jobs:
       - name: Update deployment file
         run: TAG=$(echo $GITHUB_SHA | head -c7) && sed -i 's|<IMAGE>|registry.digitalocean.com/containers/deno-app:'${TAG}'|' $GITHUB_WORKSPACE/config/deployment.yml
 
+      - name: Add namespace to Kubernetes
+        run: kubectl apply -f config/namespace.yml
+
       - name: Deploy to Kubernetes
         run: kubectl apply -f config/deployment.yml
 
