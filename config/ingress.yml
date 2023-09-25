@@ -12,7 +12,7 @@ spec:
       http:
         paths:
           - pathType: Prefix
-            path: "/deno(/|$)(.*)"
+            path: "/"
             backend:
               service:
                 name: deno-app
