@@ -8,13 +8,13 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   rules:
-  - host: "app.motoren.site"
-    http:
-      paths:
-      - pathType: Prefix
-        path: "/deno(/|$)(.*)"
-        backend:
-          service:
-            name: deno-app
-            port:
-              number: 80
+    - host: "app.devgeek.io"
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/deno(/|$)(.*)"
+            backend:
+              service:
+                name: deno-app
+                port:
+                  number: 80
