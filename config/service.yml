@@ -3,6 +3,9 @@ apiVersion: v1
 metadata:
   name: deno-app
   namespace: apps
+  annotations:
+    service.beta.kubernetes.io/do-loadbalancer-protocol: "https"
+    service.beta.kubernetes.io/do-loadbalancer-certificate-id: "letsencrypt2023"
   labels:
     k8s-app: deno-app
 spec:
