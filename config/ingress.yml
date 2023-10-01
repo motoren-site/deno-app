@@ -7,7 +7,7 @@ spec:
   ingressClassName: nginx
   rules:
     - host: app.ostepopp.site
-      https:
+      http:
         paths:
           - path: "/"
             pathType: Prefix
