@@ -12,4 +12,4 @@ spec:
       protocol: TCP
   selector:
     k8s-app: deno-app
-  type: LoadBalancer
+  type: ClusterIP
