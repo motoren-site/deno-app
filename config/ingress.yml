@@ -9,7 +9,7 @@ spec:
     - host: app.ostepopp.site
       http:
         paths:
-          - path: "/"
+          - path: "/deno(/|$)(.*)"
             pathType: Prefix
             backend:
               service:
