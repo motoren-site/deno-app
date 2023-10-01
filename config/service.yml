@@ -7,10 +7,9 @@ metadata:
     k8s-app: deno-app
 spec:
   ports:
-  - port: 80
-    targetPort: 8000
-    protocol: TCP
+    - port: 80
+      targetPort: 8000
+      protocol: TCP
   selector:
     k8s-app: deno-app
-  type: ClusterIP
-  ipFamilyPolicy: SingleStack
+  type: LoadBalancer

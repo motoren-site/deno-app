@@ -5,14 +5,13 @@ metadata:
   namespace: apps
   annotations:
     kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   rules:
     - host: "app.ostepopp.site"
       http:
         paths:
           - pathType: Prefix
-            path: "/deno(/|$)(.*)"
+            path: "/"
             backend:
               service:
                 name: deno-app
