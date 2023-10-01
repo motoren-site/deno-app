@@ -1,18 +1,23 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: deno-app
+  name: https-with-cert
   namespace: apps
   annotations:
-    service.beta.kubernetes.io/do-loadbalancer-protocol: "https"
+    service.beta.kubernetes.io/do-loadbalancer-protocol: "http"
+    service.beta.kubernetes.io/do-loadbalancer-algorithm: "round_robin"
+    service.beta.kubernetes.io/do-loadbalancer-tls-ports: "443"
     service.beta.kubernetes.io/do-loadbalancer-certificate-id: "letsencrypt2023"
-  labels:
-    k8s-app: deno-app
 spec:
-  ports:
-    - port: 80
-      targetPort: 8000
-      protocol: TCP
-  selector:
-    k8s-app: deno-app
   type: LoadBalancer
+  selector:
+    app: deno-app
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8000
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 8000
