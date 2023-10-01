@@ -7,7 +7,7 @@ metadata:
     service.beta.kubernetes.io/do-loadbalancer-protocol: "http"
     service.beta.kubernetes.io/do-loadbalancer-algorithm: "round_robin"
     service.beta.kubernetes.io/do-loadbalancer-tls-ports: "443"
-    service.beta.kubernetes.io/do-loadbalancer-certificate-id: "letsencrypt2023"
+    service.beta.kubernetes.io/do-loadbalancer-certificate-id: "66bed2e6e5b69272f720b74c2f5d338f5dd777b6"
 spec:
   type: LoadBalancer
   selector:
