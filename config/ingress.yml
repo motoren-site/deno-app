@@ -5,11 +5,10 @@ metadata:
   namespace: apps
   annotations:
     kubernetes.io/ingress.class: nginx
+    service.beta.kubernetes.io/do-loadbalancer-protocol: "https"
+    service.beta.kubernetes.io/do-loadbalancer-certificate-id: "letsencrypt2023"
+
 spec:
-  tls:
-    - hosts:
-        - app.ostepopp.site # Replace with your domain
-      secretName: letsencrypt2023
   rules:
     - host: "app.ostepopp.site"
       http:
